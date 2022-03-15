@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "angular-persian-stepper": {
+      "projectType": "library",
+      "root": "projects/angular-persian-stepper",
+      "sourceRoot": "projects/angular-persian-stepper/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angular-persian-stepper/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-persian-stepper/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-persian-stepper/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-persian-stepper/src/test.ts",
+            "tsConfig": "projects/angular-persian-stepper/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-persian-stepper/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "angular-persian-stepper"
 }
