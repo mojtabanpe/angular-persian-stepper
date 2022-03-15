@@ -1,0 +1,21 @@
+{
+  "name": "angular-persian-stepper",
+  "version": "0.0.8",
+  "peerDependencies": {
+    "@angular/common": "^13.2.0",
+    "@angular/core": "^13.2.0"
+  },
+  "scripts": {
+    "package": "ng-packagr -p ng-package.json",
+    "postpackage": "cp -R assets ../../dist/angular-persian-stepper",
+    "version": "cd ../../dist/angular-persian-stepper && npm version 0.0.14",
+    "release": "cd ../../dist/angular-persian-stepper && npm publish",
+    "all": "npm run package && npm run postpackage && npm run version && npm run release"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "ng-packagr": "^13.2.1"
+  }
+}

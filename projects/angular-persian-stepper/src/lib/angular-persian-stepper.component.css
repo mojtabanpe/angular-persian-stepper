@@ -1,0 +1,163 @@
+* {
+    transition: all .5s linear
+}
+#container {
+    text-align: right;
+    direction: rtl;
+    display: flex;
+    padding: 5rem;
+    position: relative;
+    width: 800px
+}
+.step {
+    display: flex;
+
+}
+
+#step-prefixes{
+    display: flex;
+    flex-direction: column;
+}
+
+.step-prefix-all {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100px;
+}
+.step-prefix-all.active {
+    height: 200px;
+}
+.step-prefix {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+    transform: translateX(-15px);
+    cursor: pointer;
+}
+
+.span-label-container {
+    min-width:  40px;
+    display: flex;
+    justify-content: flex-end;
+}
+.step-label {
+    font-size: 13px;
+}
+
+.step-label.active {
+    font-size: 24px;
+}
+
+.span-pointer-container {
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.step-pointer {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #2b5670;
+}
+
+.step-pointer.active {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-shadow: 0 1px 5px #2b5670;
+    background-image:  url('data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjUuMTIgNzkuNiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMxZTRiNjU7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5BcnRib2FyZCAyIGNvcHlAMTUweC0xMDA8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTkwLjgxLDU0LjdINzAuOTJsLS43Ljg4QTIyLDIyLDAsMCwxLDYzLjkxLDYxYTIzLDIzLDAsMCwwLDcuMzcsMS4yMWgyN0E3LjUxLDcuNTEsMCwwLDAsOTAuODEsNTQuN1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik04Ni4zNCwxMi4xNUg2OC4yOGEyMCwyMCwwLDAsMC0yMCwyMHY3QTIyLjkzLDIyLjkzLDAsMCwwLDUyLjg0LDUzbC43OS0uMThhMTMuMjksMTMuMjksMCwwLDAsNi0zLDE0LjksMTQuOSwwLDAsMS0zLjg3LTEwdi01YTE1LDE1LDAsMCwxLDE1LTE1SDg1LjNhNS41MSw1LjUxLDAsMCwxLDUuNTEsNS41MVY0Ny4yNGg3LjUxVjI0LjEzQTEyLDEyLDAsMCwwLDg2LjM0LDEyLjE1WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTUxLjMyLDE4Ljc5YTIxLjc4LDIxLjc4LDAsMCwxLDcuMjYtNS45MiwyMC4zMywyMC4zMywwLDAsMC01LjMyLS43MmgtMThhMTIsMTIsMCwwLDAtMTIsMTJWNjIuMjFoMGE3LjUxLDcuNTEsMCwwLDAsNy41MS03LjUxVjI1LjE3YTUuNTEsNS41MSwwLDAsMSw1LjUtNS41MUg1MC42M1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03MCwyMS4yNWwtLjg3LjFhMTMuMzgsMTMuMzgsMCwwLDAtNy4yNywzLjI3QTE1LDE1LDAsMCwxLDY1Ljc4LDM0Ljd2NWExNSwxNSwwLDAsMS0xNSwxNUgzOC4zM3Y3LjUxSDUzLjI2YTIwLDIwLDAsMCwwLDIwLTIwdi0xMEExOS45MiwxOS45MiwwLDAsMCw3MCwyMS4yNVoiLz48L3N2Zz4=');
+}
+
+.seperator {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 90%;
+    padding-left: 4px;
+}
+.seperator span {
+    height: 95%;
+    width: 2px;
+    background: #2b5670;
+}
+
+#step-contents {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin-right: 30px;
+    transform: translateY(-30px)
+}
+.step-content-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 2rem;
+}
+.step-content {
+    background-color: #2b5670;
+    border: .3px solid white;
+    display: flex;
+    justify-content: center;
+}
+.step-content.active {
+    border-radius: 10px;
+    align-items: center;
+}
+.step-content.active .step-content-text h2 {
+    font-size: 1.2rem !important;
+}
+
+.step-content-text {
+    padding: 0 3rem;
+    color: white;
+    font-size: 1rem;
+}
+
+.step-content-text h2 {
+    text-align: center;
+    font-size: .9rem;
+}
+
+.step-content-text p {
+    text-align: right;
+    width: 400px;
+}
+
+.top-step-contents {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    align-items: flex-end;
+}
+
+.bottom-step-contents {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    align-items: flex-start;
+}
+
+#step-arrows {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    left: 0;
+}
+
+.step-arrow  {
+    width: 3rem;
+    height: 6rem;
+    background-color: #bfbcbc;
+    display: flex;
+    align-items: center;
+    border-radius: 0.35rem;
+    cursor: pointer;
+}
+
+.filter-modern {
+    filter: invert(28%) sepia(6%) saturate(5034%) hue-rotate(160deg) brightness(95%) contrast(83%);
+}

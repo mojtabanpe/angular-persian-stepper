@@ -1,0 +1,45 @@
+<div id="container">
+    <div id="step-prefixes">
+        <div id="step-prefix{{i}}" *ngFor="let label of stepLabels; index as i" class="step-prefix-all" [ngClass]="{active: i===mainStepNumber-2 || i===mainStepNumber-1}">
+            <div class="step-prefix" (click)="changeActiveStep(i)">
+                <div class="span-label-container">
+                    <span class="step-label" [ngClass]="{active: i===mainStepNumber-1}">{{label}}</span>
+                </div>
+                <div class="span-pointer-container">
+                    <span class="step-pointer" [ngClass]="{active: i===mainStepNumber-1}"></span>
+                </div>
+            </div>
+            <div class="seperator" *ngIf="i!==stepLabels.length-1">
+                <span></span>
+            </div>
+        </div>
+    </div>
+  
+    <div id="step-contents">
+        <div class="step-content-container" *ngFor="let content of stepTemplates; index as i">
+            <div id="content{{i}}" class="step-content" [ngClass]="{active: i===mainStepNumber-1}">
+                <ng-container *ngIf="i===mainStepNumber-1; else notActive">
+                    <div class="step-content-text">
+                        <h2 class="mb-5">{{content.title}}</h2>
+                        <p *ngFor="let item of content.text">{{item}}</p>
+                    </div>
+                </ng-container>
+                <ng-template #notActive>
+                    <div class="step-content-text">
+                        <h2>{{content.title}}</h2>
+                    </div>
+                </ng-template>
+                
+            </div>
+        </div>
+    </div>
+  
+    <div id="step-arrows">
+        <div class="step-arrow step-arrow-top" (click)="backNextStep('top')">
+            <img src="  data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Ni4yMTMgNDc2LjIxMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDc2LjIxMyA0NzYuMjEzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cG9seWdvbiBwb2ludHM9IjMwOC43MTMsNzAuNjA3IDIzOC4xMDcsMCAxNjcuNSw3MC42MDcgMTg4LjcxMyw5MS44MiAyMjMuMTA3LDU3LjQyNyAyMjMuMTA3LDQ3Ni4yMTMgMjUzLjEwNyw0NzYuMjEzIA0KCTI1My4xMDcsNTcuNDI3IDI4Ny41LDkxLjgyICIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" class="filter-modern">
+        </div>
+        <div class="step-arrow step-arrow-down" (click)="backNextStep('down')">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Ni4yMTMgNDc2LjIxMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDc2LjIxMyA0NzYuMjEzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cG9seWdvbiBwb2ludHM9IjI4Ny41LDM4NC4zOTQgMjUzLjEwNyw0MTguNzg3IDI1My4xMDcsMCAyMjMuMTA3LDAgMjIzLjEwNyw0MTguNzg3IDE4OC43MTMsMzg0LjM5NCAxNjcuNSw0MDUuNjA2IA0KCTIzOC4xMDcsNDc2LjIxMyAzMDguNzEzLDQwNS42MDYgIi8+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" class="filter-modern">
+        </div>
+    </div>
+  </div>
